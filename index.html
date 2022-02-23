@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Birdle!</title>
+</head>
+<body>
+
+<div class="game-container">
+    <div class="title-container">
+        <h1>Birdle</h1>
+        <p>Try to guess the bird or the bird related word!</p>
+        <input type="text" name="userInput" id="userInput" pattern="[a-z]{5}" maxlength="5">
+        <button onclick="addTo()" value="add">submit</button>
+    </div>
+    <div class="msg-container"></div>
+    
+    <div class="tile-container"></div>
+
+    <div class="key-container"></div>
+
+</div>
+
+
+<script src="bird.js"></script>    
+</body>
+</html>
