@@ -57,26 +57,23 @@ const birds = [
   'Glide',
   'Tweet',
   'Chirp',
-  'Cheep'
+  'Cheep',
 ];
-// console.log(birds.length)
 //add words to an array
-const addedArray = []
+const addedArray = [];
 
 const addTo = (word) => {
   // defining the userinput as the id of the element
-  const userInput = document.getElementById('userInput')
+  const userInput = document.getElementById('userInput');
   //pushing the value of the userinput id
   addedArray.push(userInput.value);
   //add input into the array and make it uppercase
   const capitalAddedArray = addedArray.map((word) => word.toUpperCase());
-  console.log(capitalAddedArray)
-} 
+  console.log(capitalAddedArray);
+};
 //uppercase an array through the .map() method
-const upperCaseBirds = birds.map(item => item.toUpperCase());
-console.log(upperCaseBirds)
-
-// const word = 'WATER'
+const upperCaseBirds = birds.map((item) => item.toUpperCase());
+console.log(upperCaseBirds);
 
 const randomArr = (arr) => {
   //get random index
@@ -84,11 +81,11 @@ const randomArr = (arr) => {
   //get random item
   const item = arr[randomIndex];
   return item;
-}
+};
 // console.log(randomArr(upperCaseBirds))
 
 const word = randomArr(upperCaseBirds);
-console.log(word)
+console.log(word);
 
 //selecting the tile container div
 const tileDisplay = document.querySelector('.tile-container');
@@ -129,7 +126,7 @@ const keys = [
   'V',
   'B',
   'N',
-  'M'
+  'M',
 ];
 const guessRows = [
   ['', '', '', '', ''],
@@ -258,13 +255,12 @@ const addColorToKey = (keyLetter, color) => {
 
 const flipTile = () => {
   const rowTiles = document.querySelector('#guessRow-' + currentRow).childNodes;
-  let checkWord = word
-  const guess = []
+  let checkWord = word;
+  const guess = [];
 
-  rowTiles.forEach(tile => {
-    guess.push({letter: tile.getAttribute('data'), color: 'grey-overlay'})
-  })
-
+  rowTiles.forEach((tile) => {
+    guess.push({ letter: tile.getAttribute('data'), color: 'grey-overlay' });
+  });
 
   guess.forEach((guess) => {
     if (checkWord.includes(guess.letter)) {
@@ -274,19 +270,17 @@ const flipTile = () => {
   });
 
   guess.forEach((guess, index) => {
-    if (guess.letter == word[index]){
-      guess.color = 'green-overlay'
-      checkWord = checkWord.replace(guess.letter, '')
+    if (guess.letter == word[index]) {
+      guess.color = 'green-overlay';
+      checkWord = checkWord.replace(guess.letter, '');
     }
-  })
-
-
+  });
 
   rowTiles.forEach((tile, index) => {
     setTimeout(() => {
-      tile.classList.add('flip')
-      tile.classList.add(guess[index].color)
-      addColorToKey(guess[index].letter, guess[index].color)
+      tile.classList.add('flip');
+      tile.classList.add(guess[index].color);
+      addColorToKey(guess[index].letter, guess[index].color);
     }, 500 * index);
   });
 };
